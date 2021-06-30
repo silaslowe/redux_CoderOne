@@ -12,28 +12,27 @@ const stateSelector = createSelector(makeSelectUsers, (users) => ({
     users,
 }));
 
-
 const actionDispatch = (dispatch) => ({
     setUser: (users) => dispatch(setUsers(users)),
-})
+});
 
 export function HomePage(props) {
-    const {users} = useSelector(stateSelector)
-    const {setUser} = actionDispatch(useDispatch())
+    const {users} = useSelector(stateSelector);
+    const {setUser} = actionDispatch(useDispatch());
 
     const fetchUsers = async () => {
         const response = await Axios.get("https://reqres.in/api/users").catch(
             (err) => {
-                console.log("ERR", err);
+                console.log("Err: ", err);
             }
         );
 
-        setUser(response.data.data)
-    }
+        setUser(response.data.data);
+    };
 
     useEffect(() => {
-        fetchUsers()
-    }, [])
+        fetchUsers();
+    }, []);
 
     console.log("Users:", users);
 
