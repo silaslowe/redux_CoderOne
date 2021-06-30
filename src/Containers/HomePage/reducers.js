@@ -1,5 +1,5 @@
 const defaultSate = {
-    users: ["No Users!"]
+    users: []
 }
 
 export default function homePageReducer(state = defaultSate, action) {
