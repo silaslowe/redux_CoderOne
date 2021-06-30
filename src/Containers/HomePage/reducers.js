@@ -1,4 +1,6 @@
-const defaultSate = {}
+const defaultSate = {
+    users: []
+}
 
 export default function homePageReducer(state = defaultSate, action) {
     switch (action.type) {
